@@ -6,6 +6,7 @@
 #include <sys/time.h>
 
 #include <log4c.h>
+#include "hello_world.h"
 
 int main(int argc, char** argv){
   int rc = 0;
@@ -17,7 +18,10 @@ int main(int argc, char** argv){
   }else{
       mycat = log4c_category_get("log4c.examples.helloworld");
 
-      log4c_category_log(mycat, LOG4C_PRIORITY_ERROR, "Hello World!");
+      hello_world_t * ahello = hello_world_create();
+      hello_world_set_hello(ahello, "Hello World Again!");
+
+      log4c_category_log(mycat, LOG4C_PRIORITY_ERROR, hello_world_say_hello(ahello));
 
 
       double sec;
