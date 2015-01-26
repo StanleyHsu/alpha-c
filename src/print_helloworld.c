@@ -19,9 +19,9 @@ int main(int argc, char** argv){
       mycat = log4c_category_get("log4c.examples.helloworld");
 
       hello_world_t * ahello = hello_world_create();
-      hello_world_set_hello(ahello, "Hello World Again!");
+      hello_world_set_hello(ahello, "Hello World Again with libhelloworld!");
 
-      log4c_category_log(mycat, LOG4C_PRIORITY_ERROR, hello_world_say_hello(ahello));
+      log4c_category_log(mycat, LOG4C_PRIORITY_ERROR, "%s",  hello_world_say_hello(ahello));
 
 
       double sec;

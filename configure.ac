@@ -15,10 +15,19 @@ AC_INIT([alpha-c], [0.0.1], [bingcanxu@gmail.com],
 
 # Enable "automake" to simplify creating makefiles:
 	AM_INIT_AUTOMAKE([foreign subdir-objects -Wall -Werror])
+	AM_PROG_AR
+	LT_INIT
+	AC_CANONICAL_HOST
 
 # Checks for programs.
 	AC_PROG_CC
-
+	AC_PROG_CPP
+	AC_PROG_CXX
+	AC_PROG_INSTALL
+	AC_PROG_LN_S
+	AC_PROG_MAKE_SET
+	AC_PROG_LIBTOOL
+	
 # Checks for libraries.
 	AC_CHECK_LIB([log4c], [log4c_category_get], [LOG4CLIB=-llog4c])
 	AC_SUBST([LOG4CLIB])
