@@ -15,6 +15,7 @@ AC_INIT([alpha-c], [0.0.1], [bingcanxu@gmail.com],
 
 # Enable "automake" to simplify creating makefiles:
 	AM_INIT_AUTOMAKE([foreign subdir-objects -Wall -Werror])
+	AM_MAINTAINER_MODE([enable])
 	AM_PROG_AR
 	LT_INIT
 	AC_CANONICAL_HOST
@@ -31,7 +32,9 @@ AC_INIT([alpha-c], [0.0.1], [bingcanxu@gmail.com],
 # Checks for libraries.
 	AC_CHECK_LIB([log4c], [log4c_category_get], [LOG4CLIB=-llog4c])
 	AC_SUBST([LOG4CLIB])
-
+	
+	PKG_CHECK_MODULES([GLIB],[glib-2.0])
+	
 # Checks for header files.
 	AC_CHECK_HEADERS([sys/time.h])
 
